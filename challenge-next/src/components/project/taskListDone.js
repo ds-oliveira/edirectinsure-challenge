@@ -12,7 +12,7 @@ export default function TaskListDone({ title, tasks }) {
                         <label style={{ marginLeft: "5px", fontSize: 14, color: "black" }}>{task.name}</label>
                     </a>
                     <ReactTooltip id={task._id} type='info'>
-                        <span>{task.endDate}</span>
+                        <span>Finished at: {new Date(task.endDate).toString()}</span>
                     </ReactTooltip>
                 </Checkbox>))
             }
