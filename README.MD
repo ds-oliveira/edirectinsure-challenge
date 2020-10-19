@@ -38,7 +38,10 @@
 - Use PATCH instead of PUT;
 - Improve the swagger documentation;
 - Code refactoring;
-- Implement unitary, integration, and end-to-end tests;
+- Implement unitary, integration, and end-to-end tests (jest); 
+- Use an application logs system such as logstash;
+- Use an application business metrics system such as grafana;
+- Use an application general metrics system such as new relic;
 - Improve all the front-end side since it was my first front-end project with React and Next.js.
 
 ## How to run:
