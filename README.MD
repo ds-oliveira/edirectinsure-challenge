@@ -23,7 +23,8 @@
 - PM2;
 - Express;
 - React;
-- Next.js.
+- Next.js;
+- MongoDB.
 
 ## URLs:
 - Front-end: http://localhost
@@ -37,6 +38,7 @@
 - Implement different endpoints do update specific paths of the main entity;
 - Use PATCH instead of PUT;
 - Improve the swagger documentation;
+- Improve the dashboard's grid;
 - Code refactoring;
 - Implement unitary, integration, and end-to-end tests (jest); 
 - Use an application logs system such as logstash;
