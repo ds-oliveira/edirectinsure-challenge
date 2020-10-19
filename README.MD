@@ -1,4 +1,4 @@
-# EDirectinsure TODO List
+# EDirectInsure TODO List
 
 ## Why did I separate back-end from front-end in two applications?
 - Different scalability for each application;
