@@ -97,9 +97,8 @@ export default function Project({ model, project }) {
                     : ""
                 }
 
-                <hr />
-
                 <div style={{ marginBottom: "50px" }}>
+                    <hr />
                     <Input height="30px" width="65%" placeholder="Task" value={inputState} changeFunction={updateValue}></Input>
                     <Button height="30px" width="30%" backgroundColor="#50db40" float="right" marginRight="5px" clickFunction={() => createTask(project._id)}>Add</Button>
                 </div>
