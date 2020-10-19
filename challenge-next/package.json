@@ -1,0 +1,22 @@
+{
+  "name": "challenge-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 80",
+    "build": "next build",
+    "start": "next start -p 80"
+  },
+  "author": "Danilo Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "0.20.0",
+    "cookie-cutter": "0.2.0",
+    "cors": "2.8.5",
+    "js-sha256": "0.9.0",
+    "next": "9.5.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-tooltip": "4.2.10"
+  }
+}

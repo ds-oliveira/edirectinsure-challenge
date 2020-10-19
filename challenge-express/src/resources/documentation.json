@@ -1,0 +1,245 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "version": "1.0.0",
+        "title": "Challenge",
+        "description": "Challenge API",
+        "contact": {
+            "name": "Danilo Oliveira",
+            "email": "dsoliveira.developer@gmail.com"
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "name": "api_key",
+                "in": "header"
+            },
+            "UserToken": {
+                "type": "apiKey",
+                "name": "token",
+                "in": "header"
+            }
+        }
+    },
+    "paths": {
+        "/health": {
+            "get": {
+                "tags": [
+                    "Health"
+                ],
+                "description": "Get application health status",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Application is healthy",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "status": "OK"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    },
+                    {
+                        "UserToken": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "description": "Get an user by its token",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "User obtained",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "_id": "5f8ccb5df1e4504c58ad0af6",
+                                    "name": "Danilo Oliveira",
+                                    "email": "dsoliveira.developer@gmail.com",
+                                    "projects": [],
+                                    "token": "83643be5c7689d46e3070f5c9f7896bc6bb5992b5a7c3f65cf382023a529f03c",
+                                    "status": "active"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid API Key",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Invalid API Key"
+                                  }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    },
+                    {
+                        "UserToken": []
+                    }
+                ],
+                "tags": [
+                    "User"
+                ],
+                "description": "Create a new user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": {
+                                "name": "Danilo Oliveira",
+                                "email": "dsoliveira.developer@gmail.com",
+                                "password": "05481957bfcf7926697056143b452059ab529db6518a7d221c16c73a89c898fe"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User created",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "token": "8d672e6c47c618eca33f19578c7eda74053106a81791ce1803234111aaef0c10"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid API Key",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Invalid API Key"
+                                  }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "User already registered",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "User already registered"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    },
+                    {
+                        "UserToken": []
+                    }
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "description": "Generate a new token for an user",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": {
+                                "email": "dsoliveira.developer@gmail.com",
+                                "password": "05481957bfcf7926697056143b452059ab529db6518a7d221c16c73a89c898fe"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User token obtained",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                   "token": "7ec16ff46286f729ac5a5aabd80ae31497874b7345971f8b7b20d3ce8c201c96"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid API Key",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Invalid API Key"
+                                  }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    },
+                    {
+                        "UserToken": []
+                    }
+                ],
+                "tags": [
+                    "Project"
+                ],
+                "description": "Updates user's projects",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": [{"name":"teste","tasks":[]}]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Projects updated",
+                        "content": {
+                            "application/json": {
+                                "example": [{"name":"teste","tasks":[],"_id":"5f8cd5578e3d2f5bf43ff3c0"}]
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid API Key",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Invalid API Key"
+                                  }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.card{
+    width: 30%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 20px;
+    float: right;
+    background-color: rgba(255,255,255,0);
+    color: rgba(164,169,175,1);
+    height: 560px;
+}
+
+.innerCard{
+    background-color: rgba(247,247,247,1);
+    border-radius: 5px 5px 5px 5px;
+    border-color: rgba(0,0,0,.125);
+    border-style: solid;
+    border-width: 1px;
+    font-size: "25px";
+    height: 40%;
+}
+
+.form{
+    margin-top: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: black;
+    text-align: center;
+    font-size: 1.3em;
+}
